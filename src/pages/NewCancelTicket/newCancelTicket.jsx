@@ -11,8 +11,19 @@ import NavBar from '../navigation/NavigationBar';
 
 class NewCancelTicketPage extends React.Component {
   handleCancelTicket = () => {
-    // integrate  cancel ticket logic here
-    toast.success('ticket has been cancelled');
+    const fromInput = document.querySelector('.from1');
+    const toInput = document.querySelector('.from2');
+    if (!fromInput.value || !toInput.value) {
+      toast.error('Please enter both From and To values.');
+      return;
+    }
+    
+    if (fromInput && toInput) {
+      fromInput.value = '';
+      toInput.value = '';
+    }
+     
+    toast.success('Ticket has been cancelled');
   };
 
   render() {
